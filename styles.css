@@ -1,0 +1,70 @@
+:root {
+    --backgroundColor: rgb(209, 230, 246);
+    --colorShadeA: rgb(137, 180, 205);
+    --colorShadeB: rgb(156, 198, 225);
+    --colorShadeC: rgb(195, 230, 242);
+    --colorShadeD: rgb(211, 243, 251);
+    --colorShadeE: rgb(232, 251, 255);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    min-height: 100vh;
+    background: var(--backgroundColor);
+}
+
+button {
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    font-size: 1.5rem;
+    color: var(--colorShadeA);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+button.btn {
+    padding: 1em 2em;
+    border: 2px solid var(--colorShadeA);
+    border-radius: 1em;
+    background: var(--colorShadeE);
+    transform-style: preserve-3d;
+    transition: all 175ms cubic-bezier(0, 0, 1, 1);
+}
+
+button.btn::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: var(--colorShadeC);
+    border-radius: inherit;
+    box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.75em 0 0 var(--colorShadeA);
+    transform: translate3d(0, 0.75em, -1em);
+    transition: all 175ms cubic-bezier(0, 0, 1, 1);
+}
+
+button.btn:hover {
+    background: var(--colorShadeD);
+    transform: translate(0, 0.375em);
+}
+
+button.btn:active {
+    transform: translate(0em, 0.75em);
+}
+
+button.btn:active::before {
+    transform: translate3d(0, 0, -1em);
+    box-shadow: 0 0 0 2px var(--colorShadeB), 0 0.25em 0 0 var(--colorShadeB);
+}
